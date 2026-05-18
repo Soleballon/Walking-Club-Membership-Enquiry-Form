@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Club Enquiry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Join Us</h2>
+    <form id="enquiryForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your email address" required>
+        <input type="tel" name="phone" placeholder="Phone number (optional)">
+        <textarea name="question" rows="5" placeholder="Your Question"></textarea>
+        <button type="submit">Send Enquiry</button>
+    </form>
+<p id="message"></p>
+
+<script>
+
+ document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch("https://script.google.com/macros/s/AKfycbxzZyxpugDdPzOAemxRXxvudjiOjwtsQyhsFidkzhV1ztRemrgcq_48aRcUb0kcgR8REw/exec", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+
+    // Show success message
+    document.getElementById("message").innerText =
+    "Thank you. We will contact you soon.";
+
+    // Clear the form
+    this.reset();
+
+    // Wait 3 seconds, then return to website
+    setTimeout(function() {
+        window.location.href = "https://www.bournvillewalkingclub.co.uk/";
+    }, 3000);
+    })
+    .catch(error => {
+        document.getElementById("message").innerText =
+          "Sorry, something went wrong.";
+    });
+});      
+
+
+</script>
+
+</body>
+</html>
