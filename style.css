@@ -1,0 +1,25 @@
+body {
+      font-family: Arial;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #2d6a4f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
